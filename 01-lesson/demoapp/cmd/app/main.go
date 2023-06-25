@@ -11,7 +11,7 @@ func main() {
 		http.HandlerFunc(
 			func(w http.ResponseWriter, r *http.Request) {
 				s := r.URL.Query()["s"]
-				rev := strings_utils.Rev(s)
+				rev := strings_utils.Rev(s[0])
 				w.Write([]byte(rev))
 			},
 		),
