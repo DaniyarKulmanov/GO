@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"example/user/hi/morestrings"
+	"GO_thinknetica/01-lesson/hi/morestrings"
 
 	"github.com/google/go-cmp/cmp"
 )

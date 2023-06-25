@@ -1,10 +1,9 @@
 package main
 
 import (
+	"GO_thinknetica/01-lesson/greetings"
 	"fmt"
 	"log"
-
-	"example.com/greetings"
 )
 
 func main() {
