@@ -7,14 +7,10 @@ import (
 )
 
 func main() {
-
 	message := "Hello"
-
 	// create error using New() function
 	myError := errors.New("WRONG MESSAGE")
-
 	if message != "Programiz" {
 		fmt.Println(myError)
 	}
-
 }

@@ -12,6 +12,6 @@ func main() {
 	if age < 0 {
 		fmt.Println(error)
 	} else {
-		fmt.Println("Age: %d", age)
+		fmt.Printf("Age: %d", age)
 	}
 }
