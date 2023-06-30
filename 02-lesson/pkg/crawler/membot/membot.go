@@ -1,7 +1,7 @@
 package membot
 
 import (
-	"go-core-4/GoSearch/pkg/crawler"
+	"GO_thinknetica/02-lesson/pkg/crawler"
 )
 
 // Service - имитация служба поискового робота.
@@ -19,13 +19,13 @@ func (s *Service) Scan(url string, depth int) ([]crawler.Document, error) {
 	data := []crawler.Document{
 		{
 			ID:    0,
-			URL:   "https://yandex.ru",
-			Title: "Яндекс",
+			URL:   "https://go.dev/",
+			Title: "GO_dev",
 		},
 		{
 			ID:    1,
-			URL:   "https://google.ru",
-			Title: "Google",
+			URL:   "https://www.programiz.com/golang",
+			Title: "Programiz",
 		},
 	}
 
