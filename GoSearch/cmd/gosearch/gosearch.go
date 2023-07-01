@@ -5,6 +5,7 @@ import (
 	"GO_thinknetica/GoSearch/pkg/crawler/spider"
 	"flag"
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -31,8 +32,17 @@ func main() {
 	var search string
 
 	flag.StringVar(&search, "s", "documents", "search links")
-
 	flag.Parse()
-
 	fmt.Println(search)
+
+	// filter content based on search
+	var dataFilter []crawler.Document
+	fmt.Println(strings.Contains(data[1].URL, search))
+
+	for i := range data {
+		if strings.Contains(data[i].URL, search) {
+			dataFilter = append(dataFilter, data[i])
+		}
+	}
+	fmt.Println(dataFilter)
 }
