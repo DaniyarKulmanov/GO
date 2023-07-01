@@ -19,13 +19,13 @@ func (s *Service) Scan(url string, depth int) ([]crawler.Document, error) {
 	data := []crawler.Document{
 		{
 			ID:    0,
-			URL:   "https://go.dev/",
-			Title: "GO_dev",
+			URL:   "https://yandex.ru",
+			Title: "Яндекс",
 		},
 		{
 			ID:    1,
-			URL:   "https://www.programiz.com/golang",
-			Title: "Programiz",
+			URL:   "https://google.ru",
+			Title: "Google",
 		},
 	}
 
