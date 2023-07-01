@@ -24,11 +24,10 @@ func main() {
 			continue
 		}
 		// result append to data
-		data = append(result)
+		data = append(data, result...)
 		//print section
-		fmt.Println(result)
+		//fmt.Println(result)
 	}
 	// write data to a file
-	// todo
 	fmt.Println(data)
 }
