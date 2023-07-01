@@ -26,23 +26,24 @@ func main() {
 		data = append(data, result...)
 	}
 
-	fmt.Println(data)
-
 	// read flag
 	var search string
 
-	flag.StringVar(&search, "s", "documents", "search links")
+	flag.StringVar(&search, "s", "", "search links")
 	flag.Parse()
-	fmt.Println(search)
 
 	// filter content based on search
 	var dataFilter []crawler.Document
-	fmt.Println(strings.Contains(data[1].URL, search))
-
 	for i := range data {
 		if strings.Contains(data[i].URL, search) {
 			dataFilter = append(dataFilter, data[i])
 		}
 	}
-	fmt.Println(dataFilter)
+
+	if search != "" {
+		fmt.Println(dataFilter)
+	} else {
+		fmt.Println(data)
+	}
+
 }
