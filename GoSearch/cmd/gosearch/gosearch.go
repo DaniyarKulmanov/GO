@@ -3,6 +3,7 @@ package main
 import (
 	"GO_thinknetica/GoSearch/pkg/crawler"
 	"GO_thinknetica/GoSearch/pkg/crawler/spider"
+	"flag"
 	"fmt"
 )
 
@@ -25,4 +26,13 @@ func main() {
 	}
 
 	fmt.Println(data)
+
+	// read flag
+	var search string
+
+	flag.StringVar(&search, "s", "documents", "search links")
+
+	flag.Parse()
+
+	fmt.Println(search)
 }
