@@ -1,37 +1,22 @@
 package main
 
 import (
-	"GO_thinknetica/GoSearch/pkg/crawler"
+	"GO_thinknetica/GoSearch/pkg/crawler/spider"
+	"fmt"
+	"reflect"
 )
 
-// Service - имитация служба поискового робота.
-type Service struct{}
-
-// New - констрктор имитации службы поискового робота.
-func New() *Service {
-	s := Service{}
-	return &s
-}
-
-// Scan возвращает заранее подготовленный набор данных
-func (s *Service) Scan(url string, depth int) ([]crawler.Document, error) {
-
-	data := []crawler.Document{
-		{
-			ID:    0,
-			URL:   "https://go.dev/",
-			Title: "GO_dev",
-		},
-		{
-			ID:    1,
-			URL:   "https://www.programiz.com/golang",
-			Title: "Programiz",
-		},
-	}
-
-	return data, nil
-}
-
 func main() {
+	// create slice for data
+	// scan sites
+	// iterate through result and append to data
+	// write data to a file
 
+	s := spider.New()
+	result, err := s.Scan("https://go.dev/", 1)
+	//result, err := s.Scan("https://www.programiz.com/golang/struct", 1)
+	fmt.Println(reflect.TypeOf(result[0]))
+	//fmt.Println(result)
+	fmt.Printf("len=%d cap=%d %v\n", len(result), cap(result), result)
+	fmt.Println(err)
 }
