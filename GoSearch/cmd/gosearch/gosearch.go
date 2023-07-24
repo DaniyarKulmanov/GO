@@ -1,46 +1,38 @@
 package main
 
 import (
+	"GO_thinknetica/03-algorithms/1-search"
 	"GO_thinknetica/GoSearch/pkg/crawler"
 	"GO_thinknetica/GoSearch/pkg/crawler/spider"
+	"GO_thinknetica/GoSearch/pkg/index"
 	"flag"
 	"fmt"
-	"strings"
 )
 
 func main() {
-	var fullData []crawler.Document
-	var searchData []crawler.Document
-	var search string
+	var word string
+	var depth int
+	var BinaryDocs []crawler.Document
 	sts := [2]string{
 		"https://go.dev/",
 		"https://www.programiz.com/golang/",
 	}
 	s := spider.New()
-	flag.StringVar(&search, "s", "", "search links")
+	flag.StringVar(&word, "s", "", "word links")
+	flag.IntVar(&depth, "d", 1, "depth size")
 	flag.Parse()
 
 	for i := range sts {
-		result, err := s.Scan(sts[i], 1)
+		result, err := s.Scan(sts[i], depth)
 		if err != nil {
 			fmt.Println(err)
 			continue
 		}
-		fullData = append(fullData, result...)
+		index.Create(result[0])
 	}
-	if search != "" {
-		searchData = append(searchData, searchString(fullData, search)...)
+	if word != "" {
+		BinaryDocs = __search.Binary(index.MapIndex[word], index.Documents)
 	}
-	fmt.Println(fullData)
-	fmt.Println(searchData)
-}
-
-func searchString(document []crawler.Document, search string) []crawler.Document {
-	var searchData []crawler.Document
-	for i := range document {
-		if strings.Contains(document[i].Title, search) {
-			searchData = append(searchData, document[i])
-		}
-	}
-	return searchData
+	fmt.Println(index.Documents)
+	fmt.Println(BinaryDocs)
 }
