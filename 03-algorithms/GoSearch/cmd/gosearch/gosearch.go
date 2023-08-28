@@ -12,7 +12,7 @@ import (
 func main() {
 	var word string
 	var depth int
-	var BinaryDocs []crawler.Document
+	var docs []crawler.Document
 	sts := [2]string{
 		"https://go.dev/",
 		"https://www.programiz.com/golang/",
@@ -28,11 +28,13 @@ func main() {
 			fmt.Println(err)
 			continue
 		}
-		index.Create(result[0])
+		for i := range result {
+			index.Create(result[i])
+		}
 	}
 	if word != "" {
-		BinaryDocs = search.Binary(index.MapIndex[word], index.Documents)
+		docs = search.Binary(index.MapIndex[word], index.Documents)
+		index.Documents = docs
 	}
 	fmt.Println(index.Documents)
-	fmt.Println(BinaryDocs)
 }
